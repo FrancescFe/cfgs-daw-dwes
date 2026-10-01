@@ -1,6 +1,6 @@
 INSERT_AGE:str = "Indica tu edad:"
 ERROR_MESSAGE:str = "Debes indicar un número entero mayor o igual a 0."
-PRICE_MESSAGE:str = "El precio de la entrada es: "
+PRICE_MESSAGE:str = "El precio de la entrada es:"
 EUR:str = "€"
 
 while True:
