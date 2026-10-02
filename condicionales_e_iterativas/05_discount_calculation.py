@@ -18,24 +18,21 @@ discount_amount:float = 0
 final_price:float = ticket
 
 if ticket < 50:
-    print(f"{ORIGINAL_PRICE_MESSAGE} {ticket:.2f} {EUR}")
-    print(DISCOUNT_MESSAGE + " sin descuento")
-    print(FINAL_PRICE_MESSAGE, final_price, EUR)
-elif ticket <= 99.99:
+    discount_amount = 0
+elif ticket < 100:
     discount_amount = ticket * 0.05
-    final_price = ticket - discount_amount
-    print(f"{ORIGINAL_PRICE_MESSAGE} {ticket:.2f} {EUR}")
-    print(f"{DISCOUNT_MESSAGE} {discount_amount:.2f} {EUR}")
-    print(f"{FINAL_PRICE_MESSAGE} {final_price:.2f} {EUR}")
-elif ticket <= 199.99:
-    discount_amount = ticket * 0.1
-    final_price = ticket - discount_amount
-    print(f"{ORIGINAL_PRICE_MESSAGE} {ticket:.2f} {EUR}")
-    print(f"{DISCOUNT_MESSAGE} {discount_amount:.2f} {EUR}")
-    print(f"{FINAL_PRICE_MESSAGE} {final_price:.2f} {EUR}")
+elif ticket < 200:
+    discount_amount = ticket * 0.10
 else:
     discount_amount = ticket * 0.15
-    final_price = ticket - discount_amount
-    print(f"{ORIGINAL_PRICE_MESSAGE} {ticket:.2f} {EUR}")
+
+final_price: float = ticket - discount_amount
+
+print(f"{ORIGINAL_PRICE_MESSAGE} {ticket:.2f} {EUR}")
+
+if discount_amount == 0:
+    print(f"{DISCOUNT_MESSAGE} sin descuento")
+else:
     print(f"{DISCOUNT_MESSAGE} {discount_amount:.2f} {EUR}")
-    print(f"{FINAL_PRICE_MESSAGE} {final_price:.2f} {EUR}")
+
+print(f"{FINAL_PRICE_MESSAGE} {final_price:.2f} {EUR}")
